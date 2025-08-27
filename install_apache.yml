@@ -1,0 +1,20 @@
+---
+- name: Install Apache Web Server 
+  hosts: servers
+  become: yes
+
+  tasks:
+  - name: Update package apache
+    apt:
+      update_cache: yes
+
+  - name: Install apache2 package
+    apt:
+      name: apache2
+      state: present
+
+  - name: Install PHP support
+    apt: 
+      name: libapache2-mod-php
+      state: present
+
